@@ -1,0 +1,436 @@
+.meta-nav{
+  display: block;
+  width:100%;
+  &.top{margin:0 0 20px 0;}
+}
+.meta{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: $bggrey;
+
+  &.no-bg{background: none;}
+
+
+  &.border-top{border-top:1px solid $border;}
+}
+.meta-link.no-border{border-right:none!important;}
+
+.meta-solo{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-right:-1;
+
+  .meta-left, .meta-right{
+    overflow: hidden;
+    background: $grey;
+    @include border-radius;
+    @include shadow_on;
+
+    &:hover{
+      @include shadow_hover;
+    }
+
+    .meta-link,.meta-link-no-hover{
+      font-family: $font2;
+      font-weight: $medium;
+      font-size: 0.8em;
+      line-height: 15px;
+      padding:8px 0.75em 6px 0.75em;
+      color: $darkgrey;
+      &.current{
+        color: $white;
+      }
+    }
+    .meta-link{
+
+      &.border-left{border:1px solid $border;}
+
+      &:hover{
+        color: $white;
+      }
+    }
+
+  }
+}
+
+
+.meta-link,.meta-link-no-hover{
+  font-weight: $light;
+  font-family: $font2;
+  cursor: pointer;
+}
+.meta-link,.meta-link-no-hover{
+  font-size: 0.8em;
+}
+
+
+.meta-left{
+  transform: rotate(359.999deg);
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  .meta-link,.meta-link-no-hover{border-right:1px solid $border;}
+}
+.meta-right{
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  @include ani;
+  opacity: 1;
+  cursor: pointer;
+  transform:translateX(1px);
+
+  .meta-link{
+    border-left:1px solid $border;
+    flex-grow:1;
+  }
+  .meta-link-no-hover{
+    flex-grow:1;
+    border-left:1px solid $border;
+  }
+
+  &.blocked{
+    opacity:0.2;
+
+    .meta-link,.meta-link-no-hover{
+      cursor: wait;
+      pointer-events:none;
+    }
+  }
+}
+.user-icon{
+  display: block;
+  width:10px;
+  height:10px;
+  margin:0 6px 0 0;
+}
+.comments-icon{
+  display: block;
+  width:10px;
+  height:10px;
+  margin:0 6px 0 0;
+}
+.arrow-icon{
+  display: block;
+  width:auto;
+  height:10px;
+  margin:0 0 0 0;
+}
+.clock-icon{
+  display: block;
+  width:auto;
+  height:10px;
+  margin:0 6px 0 0;
+}
+.meta-link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 10px;
+  text-transform: uppercase;
+  padding:7px 10px 6px 10px;
+  color: $mediumgrey;
+  @include ani;
+  fill: $darkgrey;
+  text-decoration: none;
+  font-family: $font2;
+  transform:rotate(360deg);
+  margin:0 0px 0 0px;
+
+  &:before{
+    background: $blue;
+    display: block;
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    content: "\00a0";
+    z-index: -2;
+    opacity: 0;
+    @include ani;
+  }
+  &:after{
+    display: block;
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    content: "\00a0";
+    z-index: -1;
+    opacity: 0;
+    @include ani;
+  }
+
+  &:hover, &.live{
+    color: $white;
+    fill: $white;
+    text-decoration: none;
+    &:before{opacity: 1;}
+    &:after{opacity: 0.6;}
+  }
+}
+
+
+.meta-link-no-hover{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 10px;
+  text-transform: uppercase;
+  padding:7px 10px 6px 10px;
+  color: $mediumgrey;
+  @include ani;
+  fill: $darkgrey;
+  text-decoration: none;
+  font-size: 0.8em;
+  cursor: pointer;
+  font-family: $font2;
+  transform:rotate(360deg);
+  position: relative;
+  z-index: 5;
+
+  &.current{
+    color: $white;
+    background: none;
+
+    &:before{
+      background: $blue;
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -2;
+      @include ani;
+      opacity: 1;
+    }
+    &:after{
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -1;
+      @include ani;
+      opacity: 0.6;
+    }
+  }
+
+  &.green{
+    color: $white;
+    background-color: $darkgreen;
+  }
+}
+
+
+.meta-filler-block{
+  display: block;
+  width:100%;
+}
+
+
+
+
+// small devices (max-width: 450px) - xs
+.meta{
+  flex-wrap: wrap;
+
+  &.comment-meta{
+    flex-wrap: nowrap;
+  }
+}
+.meta-right{
+  //width:100%;
+  //border-top:1px solid $border;
+  justify-content: center;
+
+  &.meta-submit-contaner{
+    justify-content: flex-end;
+  }
+
+  .meta-link{
+    &:last-of-type{
+      border-right:1px solid $border;
+    }
+  }
+
+  &.comment{
+    width:30%;
+  }
+}
+
+.meta-left{
+  //width:100%;
+  flex-wrap: nowrap;
+  .meta-link{
+    width:100%;
+    justify-content: center;
+    &:last-of-type{
+      border-right:0 solid $border;
+    }
+  }
+  .meta-link-no-hover{
+    width:100%;
+  }
+
+  &.comment{
+    width:30%;
+  }
+}
+
+
+.meta-solo{
+  flex-wrap: wrap;
+
+  .meta-left{
+    margin:0 0 10px 0;
+  }
+  .meta-left, .meta-right{
+    width:100%;
+    flex-wrap: wrap;
+
+    &.flick-nav{
+      width:auto;
+      flex-wrap: nowrap;
+      margin:0 0 0 0;
+
+      a{
+        padding: 10px 0.75em 6px 0.75em;
+      }
+
+      .prev-icon{
+        display: inline;
+        vertical-align: middle;
+        height: 0.6em;
+      }
+
+      &.left{
+        .prev-icon{
+          margin:0 0.25em 3px 0;
+          transform: rotate(360.01deg);
+        }
+
+      }
+      &.right{
+        .prev-icon{
+          margin:0 0 3px 0.25em;
+          transform: rotate(180.01deg);
+        }
+
+      }
+    }
+  }
+}
+
+.upvote{
+  .arrow-icon{transform: rotate(180deg);}
+}
+
+.mobile-mini-header{border-bottom:1px solid $border;}
+
+.meta-solo{margin:10px 0 0 0;}
+
+.mobile-full{
+  width:100%;
+}
+
+.meta-nav{margin:10px 0 0 0;}
+
+.code-meta-rating{
+  border-top:1px solid $border;
+  width:100%;
+  margin:0 0 0 -2px;
+
+  .code-up{
+    margin:0 -1px 0 0;
+  }
+}
+.code-meta-rating-left{
+  border-top:1px solid $border;
+  width:100%;
+}
+
+.meta{&.border-top-desktop{border-top:0px solid $border;}}
+
+// Medium devices - md
+@media all and (min-width: 700px) {
+  .meta{
+    flex-wrap: nowrap;
+  }
+  .meta-right{
+    border-top:none;
+    justify-content: flex-end;
+    width:auto;
+    flex-wrap: nowrap;
+
+    .meta-link{
+      &:last-of-type{
+        border-right:none;
+      }
+
+      &.history{
+        border-left:1px solid $border!important;
+      }
+    }
+  }
+
+  .meta-left{
+    width:75%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    .meta-link-no-hover{
+      width: auto;
+    }
+    .meta-link{
+      width: auto;
+      &:last-of-type{
+        border-right:1px solid $border;
+      }
+    }
+  }
+
+  .meta-nav{margin:10px 0 0 0;}
+
+  .code-meta-rating{
+    border-top:0px solid $border;
+  }
+  .code-meta-rating-left{
+    border-top:0px solid $border;
+  }
+
+  .meta{&.border-top-desktop{border-top:1px solid $border;}}
+}
+
+// Large devices- lg
+@media all and (min-width: 950px) {
+  .mobile-full{
+    width:auto;
+  }
+  .meta-solo{
+    flex-wrap: nowrap;
+
+    .meta-left{
+      margin:0 0 0 0;
+    }
+    .meta-left, .meta-right{width:auto;}
+  }
+  .mobile-mini-header{border-bottom:none;}
+
+  .meta-solo{margin:20px 0 0 0;}
+}
+
+// Extra large devices - xl
+@media all and (min-width: 1200px) {
+
+
+}

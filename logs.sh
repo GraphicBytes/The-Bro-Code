@@ -1,0 +1,1 @@
+docker logs brocode-v4-web -f

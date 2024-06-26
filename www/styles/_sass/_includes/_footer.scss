@@ -1,0 +1,206 @@
+//##########################
+//##### DESKTOP FOOTER #####
+//##########################
+
+footer{
+  padding:0;
+  width: 100%;
+  display: block;
+  padding: relative;
+  z-index: 500;
+}
+
+
+.footer-left{
+  color: $white;
+  font-weight: $light;
+  font-size:1em;
+  font-family: $font2;
+  display: flex;
+  align-items: center;
+
+  p{
+    display: block;
+    padding: 0.1em 0 0 0;
+
+  }
+  a{
+    margin:0 5px;
+    text-decoration: none;
+    @include ani;
+    font-weight: $light;
+
+    &:active{color: $blue;}
+    &:hover{color: $blue;}
+  }
+}
+.footer-right{
+  width:100%;
+  display: flex;
+  align-items: center;
+}
+
+.social-networks-flex{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.social-bubble{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:1.6em;
+  height:1.6em;
+  margin:0 0 0 0.5em;
+  border-radius: 50%;
+  @include ani-custom(350ms);
+  position: relative;
+  transform: rotate(360deg)scale(1);
+  will-change: transform,background-color;
+
+  &:hover{
+    transform: rotate(360deg)scale(1.2);
+
+    background-color: $blue;
+    .social-reddit-icon,.social-facebook-icon,.social-twitter-icon,.social-discord-icon{
+      fill:$white;
+      transform: rotate(360deg)scale(0.65);
+    }
+  }
+}
+.social-reddit-icon,.social-facebook-icon,.social-twitter-icon,.social-discord-icon{
+  display: block;
+  width:100%;
+  height:100%;
+  @include ani-custom(350ms);
+  transform: rotate(360deg)scale(0.5);
+  will-change: transform;
+}
+
+
+
+
+
+
+
+// small devices (max-width: 450px) - xs
+  .footer-left{
+    justify-content: center;
+    width:100%;
+    order:2;
+    margin:10px 0 20px 0;
+  }
+  .footer-right{
+    margin: 0 0 0 0;
+    order:1;
+    justify-content: center;
+  }
+  .social-networks-flex{
+    margin:20px 0 0 0;
+    justify-content: center;
+  }
+  p{
+    color: $darkgrey;
+  }
+  a{
+    color: $darkgrey;
+  }
+  .social-bubble{
+    background: $darkgrey;
+    .social-reddit-icon,.social-facebook-icon,.social-twitter-icon,.social-discord-icon{fill:$bggrey;}
+  }
+
+  footer{margin-top:0;}
+
+// Medium devices - md
+@media all and (min-width: 700px) {
+  .footer-right{
+    margin: 20px 0 0 0;
+    order:1;
+    justify-content: center;
+  }
+}
+
+// Large devices- lg
+@media all and (min-width: 950px) {
+  footer{
+    height: 70px;
+    position: relative;
+    footer{margin-top:0;}
+
+    &:before{
+      background: $darkgrey;
+      @include bar_gradient_rev;
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -2;
+    }
+    &:after{
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -1;
+      opacity: 0.6;
+    }
+  }
+  .footer-left{
+    height: 70px;
+    justify-content: flex-start;
+    order:1;
+    margin:0 0 0 0;
+  }
+  .footer-right{
+    margin: 0 0 0 0;
+    order:2;
+    justify-content: flex-end;
+    height:70px;
+  }
+  .social-networks-flex{
+    justify-content: flex-end;
+    height: 70px;
+    margin:0 0 0 0;
+  }
+  p{
+    color: $greyhomepage;
+  }
+  a{
+    color: $greyhomepage;
+  }
+  .social-bubble{
+    background: $greyhomepage;
+    .social-reddit-icon,.social-facebook-icon,.social-twitter-icon,.social-discord-icon{fill:$darkgrey;}
+  }
+
+}
+
+// Extra large devices - xl
+@media all and (min-width: 1200px) {
+
+}
+
+
+
+
+
+@media screen and (min-height:1000px) and (min-width: 950px) {
+  footer{
+    position: fixed;
+    left:0;
+    bottom:0;
+  }
+  .footer-spacer{
+    display:block;
+    width:100%;
+    height:70px;
+  }
+}

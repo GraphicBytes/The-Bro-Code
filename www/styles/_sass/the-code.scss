@@ -1,0 +1,290 @@
+//######################
+//##### CODE INDEX #####
+//######################
+@import "_includes/_variables";
+@import "_includes/_global";
+@import "_includes/_loading.scss";
+@import "_includes/_general-layout";
+@import "_includes/_main_menu";
+@import "_includes/_mobile_menu.scss";
+@import "_includes/_meta";
+@import "_includes/_footer";
+@import "_includes/_hero-links";
+@import "_includes/_promos";
+
+.struck_off_line{
+  position: relative;
+
+  &:before{
+    background: $red;
+    display: block;
+    width:95%;
+    height: 2px;
+    border-radius: 2px;
+    position: absolute;
+    top:50%;
+    left:1em;
+    content: "\00a0";
+    z-index: 10;
+    transform: rotate(1deg);
+  }
+  &:after{
+    background: $red;
+    display: block;
+    width:95%;
+    height: 2px;
+    border-radius: 2px;
+    position: absolute;
+    top:50%;
+    left:1em;
+    content: "\00a0";
+    z-index: 10;
+    transform: rotate(-1deg);
+  }
+}
+
+.struck_off_line_small{
+  position: relative;
+
+  &:before{
+    background: $red;
+    display: block;
+    width:70%;
+    height: 2px;
+    border-radius: 2px;
+    position: absolute;
+    top:calc(50% - 3px);
+    left:15%;
+    content: "\00a0";
+    z-index: 10;
+    transform: rotate(50deg);
+  }
+  &:after{
+    background: $red;
+    display: block;
+    width:70%;
+    height: 2px;
+    border-radius: 2px;
+    position: absolute;
+    top:calc(50% - 3px);
+    left:15%;
+    content: "\00a0";
+    z-index: 10;
+    transform: rotate(-50deg);
+  }
+}
+
+
+
+.content-block{
+  background: none;
+  box-shadow:none;
+}
+
+.code-bar{
+  background: $grey;
+  width:100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  @include shadow_on;
+  margin:10px 0 0 0;
+  flex-direction:row;
+  justify-content: flex-start; /* align items in Main Axis */
+  align-items: stretch; /* align items in Cross Axis */
+  align-content: stretch;
+  cursor: pointer;
+  text-decoration: none;
+  @include ani;
+  @include border-radius;
+  overflow: hidden;
+
+  &:hover{
+    @include shadow_focus;
+  }
+
+  &:focus{
+    @include shadow_focus;
+  }
+
+  &.struck_off{
+    opacity: 0.6;
+  }
+
+}
+
+.code-number{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-weight:$bold;
+  font-size: 1.2em;
+  font-family: $font2;
+  flex: 1;
+  color: $darkgrey;
+  text-decoration: none;
+  position: relative;
+  z-index: 10;
+  border-right:1px solid $border;
+
+  &.full-width{
+    width: 100%!important;
+    font-size: 1em;
+    font-weight: $light;
+    padding:0.5em 0;
+    text-transform: uppercase;
+  }
+
+  &.green{
+    background: none;
+    color: $white;
+    @include text-shadow;
+    border-right:0px solid $border;
+
+    &:before{
+      background: $darkgreen;
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -2;
+    }
+    &:after{
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -1;
+      opacity: 0.8;
+    }
+  }
+  &.blue{
+    background: none;
+    color: $white;
+    @include text-shadow;
+    border-right:0px solid $border;
+
+    &:before{
+      @include bar_bluegrad;
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -2;
+    }
+    &:after{
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -1;
+      opacity: 0.8;
+    }
+  }
+}
+
+.code-content{
+  display: block;
+}
+
+.the-code{
+  display: block;
+  line-height: 105%;
+  border-bottom:1px solid $border;
+  font-family: $font2;
+  font-weight:$light;
+  color: $darkgrey;
+  text-decoration: none;
+}
+
+
+
+
+
+// small devices (max-width: 450px) - xs
+.code-number{width: 30px;}
+.code-content{
+  width:calc(100% - 31px);
+}
+
+.the-code{
+  font-size: 1.2em;
+  padding: 10px 10px 5px 10px;
+}
+
+// Medium devices - md
+@media all and (min-width: 700px) {
+  .code-number{width: 40px;}
+  .code-content{
+    width:calc(100% - 41px);
+  }
+
+  .the-code{
+    font-size: 1.1em;
+    padding: 10px 10px 5px 10px;
+  }
+}
+
+// Large devices- lg
+@media all and (min-width: 950px) {
+  .code-number{width: 50px;}
+  .code-content{
+    width:calc(100% - 51px);
+  }
+  .the-code{
+    font-size: 1.2em;
+    padding: 10px 10px 5px 10px;
+  }
+}
+
+// Extra large devices - xl
+@media all and (min-width: 1200px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//sssss

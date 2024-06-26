@@ -1,0 +1,159 @@
+.hero-link,.hero-link-big{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  @include text-shadow();
+  opacity:1;
+  color: $white;
+  text-decoration: none;
+  font-family: $font2;
+  font-weight: $bold;
+  letter-spacing: 2px;
+  @include ani();
+  margin:0 0 0 0;
+  will-change: transform, box-shadow, text-shadow;
+  text-align: center;
+  overflow:hidden;
+  transform: rotate(360.01deg)scale(1.00);
+  position: relative;
+
+  &:after{
+    display: block;
+    width:100%;
+    height:100%;
+    content: "\0020";
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+    opacity: 0.7;
+    transform: rotate(360.01deg)scale(1.00);
+  }
+  &:before{
+    display: block;
+    width:100%;
+    height:100%;
+    content: "\0020";
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -3;
+    opacity: 1;
+    @include bg_gradient;
+    transform: rotate(360.01deg)scale(1.00);
+  }
+
+  .hero-link-title{
+    position: relative;
+    z-index: 10;
+    opacity:0.7;
+    @include ani-custom(5s);
+  }
+
+  &:hover{
+    opacity:1;
+    @include text-shadow-boom();
+
+    .hero-link-bg-image{
+      @include ani-custom(350ms);
+      transform: rotate(360deg)scale(1.05);
+      opacity:1;
+    }
+
+    .hero-link-title{
+      opacity:1;
+      @include ani-custom(350ms);
+    }
+  }
+}
+
+
+.hero-link-bg-image{
+  display: block;
+  width:100%;
+  height:100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  position: absolute;
+  z-index: -2;
+  top:0;
+  left:0;
+  opacity:0.7;
+  opacity:0.7;
+  transform: rotate(360deg)scale(1);
+  @include ani-custom(5s);
+  will-change: transform;
+}
+
+
+
+
+// small devices (max-width: 325px) - xs
+.hero-link-big{
+  width:100%;
+  height:80px;
+  font-size: 1.5em;
+  line-height: 30px;
+
+  &.sub{
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    font-weight: $medium;
+    line-height: 20px;
+    padding:4px 0 0 0;
+  }
+}
+.hero-link{
+  width:calc(50% - 5px);
+  font-size: 1.5em;
+  line-height: 90%;
+}
+
+
+@media all and (min-width: 325px) {
+  .hero-link-big{
+    height:100px;
+  }
+}
+
+@media all and (min-width: 480px) {
+  .hero-link-big{
+    height:110px;
+  }
+}
+
+
+// Medium devices - md
+@media all and (min-width: 700px) {
+  .hero-link-big{
+    width:100%;
+    height:105px;
+    font-size: 1.8em;
+    line-height: 35px;
+    padding:5px 0 0 0;
+
+    &.sub{
+      height:107px;
+      font-size: 1.4em;
+      letter-spacing: 1px;
+      font-weight: $medium;
+      line-height: 30px;
+      padding:3px 0 0 0;
+    }
+  }
+  .hero-link{
+    width:calc(50% - 5px);
+    font-size: 1.7em;
+  }
+}
+
+
+
+// Large devices- lg
+@media all and (min-width: 950px) {
+
+}
+
+@media all and (min-width: 1200px) {
+
+}

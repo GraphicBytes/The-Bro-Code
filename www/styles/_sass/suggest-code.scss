@@ -1,0 +1,103 @@
+@import "_includes/_variables";
+@import "_includes/_global";
+@import "_includes/_loading.scss";
+@import "_includes/_main_menu.scss";
+@import "_includes/_meta.scss";
+@import "_includes/_mobile_menu.scss";
+@import "_includes/_general-layout.scss";
+@import "_includes/_footer.scss";
+@import "_includes/_hero-links";
+@import "_includes/_discuss.scss";
+
+.how-it-words{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width:calc(100% - 20px);
+  margin:0 auto 30px auto;
+
+  h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0.2em 0 0 0;
+    margin:0 auto;
+    font-size: 2em;
+    font-weight: $bold;
+    color: $blue;
+    width:1.6em;
+    height:1.4em;
+    border: 9px solid $blue;
+    border-radius: 50%;
+  }
+
+  p{
+    width:80%;
+    padding:0 10%;
+    text-align: center;
+    color: $darkgrey;
+    font-size: 0.9em;
+    font-weight: $medium;
+  }
+}
+
+.step{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+
+p.suggest-p{
+  width:80%;
+  padding:0 10%;
+  text-align: left;
+  color: $darkgrey;
+  font-size: 0.9em;
+  font-weight: $light;
+
+  strong{
+    font-weight: $bold;
+    color: $blue;
+  }
+}
+
+
+
+
+
+// small devices (max-width: 450px) - xs
+.step{
+  width:calc(100% - 20px);
+  margin:0 0 20px 0;
+  &.last{
+    margin:0 0 0 0;
+  }
+}
+
+.how-it-words{
+  flex-wrap: wrap;
+}
+
+// Medium devices - md
+@media all and (min-width: 700px) {
+  .step{
+    width:calc(33% - 10px);
+    margin:0 0 0 0;
+  }
+
+  .how-it-words{
+    flex-wrap: nowrap;
+  }
+}
+
+// Large devices- lg
+@media all and (min-width: 950px) {
+}
+
+// Extra large devices - xl
+@media all and (min-width: 1200px) {
+
+}

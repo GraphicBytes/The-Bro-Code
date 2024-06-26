@@ -1,0 +1,553 @@
+//###############################
+//##### HOME PAGE - DESKTOP #####
+//###############################
+@import "_includes/variables";
+@import "_includes/global";
+@import "_includes/_loading.scss";
+@import "_includes/_hero-links.scss";
+
+
+body.home{
+  color: $greyhomepage;
+  background:none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:before{
+    @include bg_gradient;
+    display: block;
+    width:100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+    content: "\00a0";
+    z-index: -2;
+  }
+  &:after{
+    display: block;
+    width:100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+    content: "\00a0";
+    z-index: -1;
+    opacity: 0.1;
+  }
+}
+
+.full-page-flex{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin:0 auto;
+  min-height: auto!important;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+
+.page-left{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.page-right{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-page-right{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width:100%;
+  //height: 100%;
+  flex-wrap: wrap;
+}
+
+
+
+.inner-page-left{
+  display: block;
+}
+.logo-contain{display: block;width:100%;}
+.logo{
+  display: block;
+  //background-color: $test;
+  opacity:1;
+  margin:0 auto 1em auto;
+  padding:0 0;
+  fill:$greyhomepage;
+  filter:drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.4));
+
+  .stroke{stroke:$greyhomepage;}
+}
+
+.login-block{
+  display: block;
+  width:100%;
+  overflow: hidden;
+  padding:1em 0;
+  margin:0;
+
+  .login-message{
+    color: $white;
+    text-align: center;
+    font-size: 1em;
+    margin:0.5em 0 0 0;
+    @include ani;
+
+    &.green{
+      color: $green;
+    }
+  }
+}
+
+.remember-me{
+  cursor: pointer;
+  display: inline-block;
+  margin:1em 0 0 0.5em;
+  padding:0 0 0 0.25em;
+  font-size: 0.8em;
+  color: $bggrey;
+  opacity: 0.5;
+  @include light-text-shadow;
+  position: relative;
+  @include ani();
+
+  &:after{
+    display: block;
+    width:1em;
+    height: 1em;
+    content: '\0020';
+    background: $bggrey;
+    @include border-radius-custom(50%);
+    position: absolute;
+    top:0;
+    right:100%;
+    transform: scale(0.75);
+    opacity: 0.5;
+  }
+
+  &.active{
+    opacity: 1;
+    color: $bggrey;
+
+    &:after{
+      background: $blue;
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+.sign-up,.log-in,.lost-password{
+  color: $bggrey;
+  display: inline-block;
+  height:1.5em;
+  line-height:1.5em;
+  text-align: center;
+  padding:0.2em 0.5em 0.05em 0.5em;
+  margin:0.5em auto 0 auto;
+  font-size: 0.8em;
+  font-family: $font2;
+  font-weight: $light;
+  border: none;
+  @include border-radius;
+  cursor: pointer;
+  transform: rotate(360deg);
+  text-transform: uppercase;
+  opacity: 0.5;
+  @include light-text-shadow;
+
+  &:hover{
+    color: $bggrey;
+    opacity: 1;
+    @include text-shadow;
+  }
+}
+.login-buttons{
+  display: block;
+  width:100%;
+  text-align: center;
+}
+
+.login-form{
+    display: block;
+    margin:0 auto;
+    position: relative;
+
+}
+.inner-login-form{
+  display: block;
+  width:100%;
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  transform: rotate(360.01deg);
+
+  &.hide{opacity: 0;}
+
+  &.login{
+    display: block;
+  }
+  &.signup{
+    display: none;
+  }
+  &.lost-pw{
+    display: none;
+  }
+}
+
+.login-header{
+  display: block;
+  width:100%;
+  font-family: $font2;
+  font-weight: $medium;
+  font-size: 1.2em;
+  text-align: center;
+  color: $greyhomepage;
+  margin:0 0 0.25em 0;
+}
+
+.home-login-field{
+  display: block;
+  width:calc(100% - 2px);
+  height:1.7em;
+  padding:0.15em 0 0 0;
+  margin:0 0 0.5em 0;
+  font-size: 1em;
+  font-family: $font2;
+  font-weight: $light;
+  background: $blueinvisible;
+  border:1px solid $greyhomepage;
+  color: $greyhomepage;
+  @include border-radius;
+  text-align: center;
+  @include ani_custom(500ms);
+  @include shadow_off;
+  outline: none;
+
+  &::placeholder{
+    color: $white;
+    opacity: 0.7;
+    @include ani_custom(500ms);
+  }
+
+  &:focus{
+    background: $blue;
+    color: $white;
+    border:1px solid $blue;
+    @include shadow_on;
+
+    &::placeholder{color: $white; opacity: 0.2;}
+  }
+}
+
+.home-login-submit{
+  background:$greyhomepage;
+  color: $darkgrey;
+  display: block;
+  width:100%;
+  height:1.75em;
+  padding:0.30em 0 0em 0;
+  margin:0 auto;
+  font-size: 0.85em;
+  font-family: $font2;
+  font-weight: $medium;
+  border: none;
+  cursor: pointer;
+  @include ani;
+  @include shadow_off;
+  @include border-radius;
+  outline:none;
+
+  &:hover{
+    background:$blue;
+    color: $white;
+    @include shadow_on;
+  }
+}
+
+.login-message{
+  display: block;
+  width:100%;
+  text-align: center;
+  font-size: 0.65em;
+  margin:1em 0 1em 0;
+  animation: blinker 3s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    color: $blue;
+  }
+}
+
+
+.social-networks-flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 50;
+  margin:20px 0 0 0;
+}
+.social-networks-flex-logged-out{
+  margin:0 0 0 0;
+}
+.home-social-bubble{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:1.6em;
+  height:1.6em;
+  background: $greyhomepage;
+  margin:0 5px;
+  border-radius: 50%;
+  @include ani-custom(350ms);
+  position: relative;
+  transform: rotate(360deg);
+
+  .social-reddit-icon,.social-facebook-icon,.social-twitter-icon,.social-discord-icon{fill:$darkgrey;}
+
+  .social-networks-tool-tip{
+    display: block;
+    position: absolute;
+    bottom:calc(100% + 30px);
+    left:6px;
+    background: $blue;
+    padding: 5px 10px 0 10px;
+    color: $white;
+    //white-space: nowrap;
+    //overflow: hidden;
+    text-align: center;
+    width:400%;
+    @include border-radius;
+    @include shadow_on;
+    font-family: $font2;
+    @include ani-custom(350ms);
+    margin:0 0 0 -200%;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1500;
+    cursor: default;
+    pointer-events: none;
+    transform: rotate(360deg);
+
+    .tooltip-arrow{
+      display: block;
+      width:10px;
+      height:10px;
+      position: absolute;
+      top:100%;
+      left:50%;
+      margin:-2px 0 0 -5px;
+      fill:$blue;
+    }
+  }
+
+  &:hover{
+    background: $blue;
+    .social-reddit-icon,.social-facebook-icon,.social-twitter-icon,.social-discord-icon{fill:$white;}
+    .social-networks-tool-tip{
+      visibility: visible;
+      opacity: 1;
+      bottom:calc(100% + 15px);
+    }
+  }
+}
+.social-reddit-icon,.social-facebook-icon,.social-twitter-icon,.social-discord-icon{
+  display: block;
+  width:50%;
+  height:50%;
+  @include ani-custom(350ms);
+}
+
+
+.home-footer{
+  margin: 2vh 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  font-family: $font2;
+  font-weight: $light;
+
+  a{
+    color: $greyhomepage;
+    margin:0 5px;
+    text-decoration: none;
+    @include ani;
+    text-align: center;
+    font-family: $font2;
+    font-weight: $light;
+    line-height: 100%;
+
+    &:hover{color: $blue;}
+  }
+}
+
+.member-controls-row{
+  &.home{
+    border-top:1px solid $mediumgrey;
+  }
+}
+
+
+.hero-link,.hero-link-big{
+  @include shadow_on;
+  @include border-radius;
+
+  &:hover{
+    @include text-shadow-boom();
+    @include shadow_boom;
+  }
+}
+
+
+.social-login-flex{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin:0.75em 0 0.4em 0;
+}
+
+.fb-login-button-container{
+  position: relative;
+  display: inline-block;
+  position: relative;
+
+
+  .fb_login_button{
+    opacity: 1;
+    z-index: 0;
+    position: relative;
+  }
+
+  .button_bg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 1;
+    @include border-radius();
+    @include ani();
+    background: $greyhomepage;
+    cursor: pointer;
+    pointer-events: none;
+    @include shadow_on;
+
+    .facebook-icon{
+      display: block;
+      height:60%;
+      width: auto;
+      margin:0 0 0 0;
+      fill:$darkgrey;
+      @include ani();
+    }
+
+    .login-fb-label{
+      display: block;
+      text-align: left;
+      font-family: $font;
+      color: $darkgrey;
+      font-weight: $bold;
+      margin:0 0 0 0.5em;
+      font-size: 0.75em;
+      padding:0;
+      line-height: 100%;
+      @include ani();
+    }
+
+    &.hover{
+      background: $blue;
+      @include shadow_boom;
+      .facebook-icon{
+        fill:$white;
+      }
+      .login-fb-label{
+        color: $white;
+      }
+    }
+  }
+
+}
+
+
+
+
+// small devices (max-width: 450px) - xs
+.page-left{
+  width: 75%;
+  margin:0 0 30px 0;
+  order:2;
+  order:2;
+}
+.page-right{
+  width: 75%;
+  order:1;
+  margin:30px 0 0 0;
+}
+.login-form{width:100%;}
+.inner-page-left{
+  width:100%;
+  max-width:400px;
+}
+.inner-page-right{
+  width:100%;
+  max-width:400px;
+}
+
+.logo{
+  width: 100%;
+  height: auto;
+}
+.hero-link,.hero-link-big{margin:0 0 10px 0;}
+
+// Medium devices - md
+@media all and (min-width: 700px) {
+  // .login-form{width:90%;}
+  // .inner-page-left{width:75%;}
+  .hero-link,.hero-link-big{margin:0 0 15px 0;}
+}
+
+// Large devices- lg
+@media all and (min-width: 950px) {
+  .page-left{
+    //width: 100%;
+    width: 300px;
+    height:100vh;
+    margin:0 15px 0 0;
+    order:1;
+  }
+  .page-right{
+    width: 300px;
+    order:2;
+    height: 100vh;
+    margin:0 0 0 15px;
+  }
+  .login-form{width:100%;}
+  .inner-page-left{width:100%;}
+
+  .logo{
+    width: auto;
+    height: 60px;
+  }
+}
+
+// Extra large devices - xl
+@media all and (min-width: 1200px) {
+  .login-form{width:80%;}
+}

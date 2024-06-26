@@ -1,0 +1,52 @@
+RewriteEngine On
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} !-f
+RewriteRule \.(gif|jpe?g|png|bmp) /var/www/html/styles/images/social.jpg [NC,L]
+RewriteRule ^([^/]*)/$ /?page=$1 [L] [OR]
+RewriteRule ^([^/]*)/([^/]*)/$ /?page=$1&typea=$2 [L] [OR]
+RewriteRule ^([^/]*)/([^/]*)/([^/]*)/$ /?page=$1&typea=$2&typeb=$3 [L] [OR]
+RewriteRule ^([^/]*)/([^/]*)/([^/]*)/([^/]*)/$ /?page=$1&typea=$2&typeb=$3&typec=$4 [L] [OR]
+RewriteRule ^([^/]*)/([^/]*)/([^/]*)/([^/]*)/([^/]*)/$ /?page=$1&typea=$2&typeb=$3&typec=$4&typed=$5 [L]
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-javascript "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+    ExpiresByType font/eot "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+</IfModule>
+
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|css|js|woff|woff2|ttf|otf|eot)$">
+        Header unset Pragma
+        Header unset Expires
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+
+    Header add access-control-allow-origin: "*"
+    Header add X-XSS-Protection "1; mode=block"
+    Header add Referrer-Policy "same-origin"
+    Header add X-Content-Type-Options: nosniff
+    Header always append X-Frame-Options SAMEORIGIN
+    Header add Strict-Transport-Security "max-age=10886400; includeSubDomains; preload"
+      
+    Header add Permissions-Policy "geolocation=(), microphone=(), camera=(), fullscreen=(), payment=(), interest-cohort=(), attribution-reporting=(), run-ad-auction=(), join-ad-interest-group=(), browsing-topics=()"
+
+    Header add Content-Security-Policy: "default-src data: https://brocode.org; script-src * data: 'unsafe-inline' 'unsafe-eval' https://brocode.org; object-src data: https://brocode.org; style-src data: 'unsafe-inline' https://brocode.org; img-src * data: https://brocode.org; media-src *; frame-src *; font-src data: https://brocode.org; connect-src * data: https://brocode.org"
+
+    Header add X-Content-Security-Policy: "default-src data: https://brocode.org; script-src * data: 'unsafe-inline' 'unsafe-eval' https://brocode.org; object-src data: https://brocode.org; style-src data: 'unsafe-inline' https://brocode.org; img-src * data: https://brocode.org; media-src *; frame-src *; font-src data: https://brocode.org; connect-src * data: https://brocode.org"
+
+    Header add X-WebKit-CSP: "default-src data: https://brocode.org; script-src * data: 'unsafe-inline' 'unsafe-eval' https://brocode.org; object-src data: https://brocode.org; style-src data: 'unsafe-inline' https://brocode.org; img-src * data: https://brocode.org; media-src *; frame-src *; font-src data: https://brocode.org; connect-src * data: https://brocode.org"
+</IfModule>

@@ -1,0 +1,166 @@
+//#####################
+//##### VARIABLES #####
+//#####################
+
+//dev
+//$static : "https://beta.brocode.org/styles";
+//live
+$static : "https://brocode.org/styles";
+//#{$static}
+
+
+
+$font: 'Barlow Condensed', sans-serif;
+$font2: 'Teko', sans-serif;
+
+// font sizes
+$light : 300;
+$medium : 500;
+$bold : 700;
+
+
+$test:rgba(255,0,0,0.3);
+$black : #000;
+$blackfade1 : #151515;
+$blackfade2 : #303030;
+
+$blackfaded : rgba(0,0,0,0.65);
+$white : rgba(255, 255, 255, 1);
+
+$bggreyfaded : rgba(0,0,0,0.85);
+$darkgrey : #303030;
+$darkgreyfaded : rgba(48, 48, 48, 0.5);
+$mediumgrey : #535353;
+
+$grey : #f9f9f9;
+$bggrey : #f0f0f0; // ued on: Meta Bar
+
+$greychild : #e8e8e8;
+$greyhomepage : #c2c2c2;
+$blue : rgba(42, 90, 147, 1);
+$darkerblue : rgba(29, 80, 136, 1);
+$bluefaded : rgba(42, 90, 147, 0.85);
+$blueinvisible : rgba(59, 118, 187, 0);
+$border : #dfdfdf;
+$darkborder : #303030;
+$green : #8cc63e;
+$darkgreen : #45740b;
+$red : #b72a2a;
+$darkerred : #a5141e;
+$orange : #cd6202;
+
+
+
+
+
+
+
+
+@mixin ani() {
+  transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+@mixin ani-slow() {
+  transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+@mixin ani-custom($transition) {
+  transition: all $transition cubic-bezier(0.19, 1, 0.22, 1);
+}
+@mixin ani-custom2($transition) {
+  transition: all $transition cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+@mixin wobble() {
+  transition: all 1000ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@mixin bgcover() {
+  background-size:cover;
+  background-position: 50% 50%;
+}
+@mixin bgcontain() {
+  background-size:cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+
+@mixin shadow_boom() {
+box-shadow: 4px 4px 15px 0px rgba(0,0,0,0.5);
+}
+
+@mixin shadow_hover() {
+box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.2);
+}
+@mixin shadow_focus() {
+box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.4);
+}
+@mixin shadow_on() {
+box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.1);
+}
+@mixin shadow_off() {
+box-shadow: 2px 2px 3px 0px rgba(0,0,0,0);
+}
+
+
+
+
+@mixin border-radius() {
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+@mixin border-radius-squared() {
+-webkit-border-radius: 3px 3px 0 0;
+-moz-border-radius: 3px 3px 0 0;
+border-radius: 3px 3px 0 0;
+}
+@mixin border-radius-fix() {
+-webkit-border-radius: 0px 0px 3px 3px;
+-moz-border-radius: 0px 0px 3px 3px;
+border-radius: 0px 0px 3px 3px;
+}
+
+@mixin border-radius-custom($val) {
+-webkit-border-radius: $val;
+-moz-border-radius: $val;
+border-radius: $val;
+}
+
+@mixin text-shadow() {
+text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+@mixin text-shadow-boom() {
+text-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+@mixin light-text-shadow() {
+text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
+@mixin bg_bluegrad() {
+  background: $blue;
+  background: radial-gradient(circle, $blue 0%, $darkerblue 100%);
+}
+@mixin bg_gradient() {
+background: $blackfade2;
+background: radial-gradient(ellipse at center, $blackfade2 0%,$blackfade1 100%);
+}
+
+
+
+@mixin bar_gradient() {
+background: $blackfade2;
+background: linear-gradient(155deg, $blackfade2 0%, $blackfade1 100%);
+}
+@mixin bar_bluegrad() {
+  background: $blue;
+  background: linear-gradient(155deg, $blue 0%, $darkerblue 100%);
+}
+@mixin bar_gradient_rev() {
+background: $blackfade2;
+background: linear-gradient(155deg, $blackfade1 0%, $blackfade2 100%);
+}
+@mixin bar_bluegrad_rev() {
+  background: $blue;
+  background: linear-gradient(155deg, $darkerblue 0%, $blue 100%);
+}

@@ -1,0 +1,156 @@
+//#######################
+//##### LEGAL PAGES #####
+//#######################
+@import "_includes/_variables";
+@import "_includes/_global";
+@import "_includes/_loading.scss";
+@import "_includes/_main_menu.scss";
+@import "_includes/_meta.scss";
+@import "_includes/_mobile_menu.scss";
+@import "_includes/_general-layout.scss";
+@import "_includes/_footer.scss";
+@import "_includes/_hero-links";
+
+
+.content-block{
+
+  h2{
+    padding: 0 15px 0 15px;
+    color: $blue;
+    text-transform: uppercase;
+    display: block;
+    width: calc(100% - 30px);
+    margin:30px 0 10px 0;
+    font-size: 1.3em;
+    font-family: $font2;
+    font-weight: $medium;
+    text-align: left;
+
+    &:first-of-type{
+      margin:0 0 10px 0;
+    }
+    &.center{text-align: center;}
+  }
+
+  p{
+    padding: 0 15px 0 15px;
+    color: $black;
+    display: block;
+    width: calc(100% - 30px);
+    margin:0 0 10px 0;
+    font-size: 0.9em;
+    font-weight: $light;
+    font-family: $font;
+    line-height: 120%;
+  }
+
+  a{
+    color: $blue;
+    text-decoration: none;
+    @include ani;
+    &:hover{
+      color: $black;
+    }
+  }
+
+  ul{
+    display: block;
+    width: calc(100% - 30px);
+
+    li{
+
+      position: relative;
+      padding: 0 15px 0 15px;
+      color: $black;
+      display: block;
+      width: calc(100% - 30px);
+      margin:0 0 10px 20px;
+      font-size: 0.9em;
+      font-weight: $light;
+      font-family: $font;
+      line-height: 130%;
+
+      ul{
+        margin:10px 0 0 0;
+        li{
+          margin:0 0 10px 0px;
+          font-size: 1em;
+        }
+      }
+
+
+      &::before {
+        content: "•";
+        color: $black;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+
+  &.no-padding{
+    padding-bottom: 0!important;
+  }
+
+}
+
+
+
+
+// small devices (max-width: 450px) - xs
+.content-block{
+  h1{text-align: center;}
+}
+.content-block{
+  &.top-padding{padding-top:20px;}
+  &.bottom-padding{padding-bottom:15px;}
+}
+
+// Medium devices - md
+@media all and (min-width: 700px) {
+  .content-block{
+    &.top-padding{padding-top:20px;}
+    &.bottom-padding{padding-bottom:15px;}
+  }
+}
+
+// Large devices- lg
+@media all and (min-width: 950px) {
+  .content-block{
+    h1{text-align: center;}
+  }
+
+  .content-block{
+    &.top-padding{padding-top:20px;}
+    &.bottom-padding{padding-bottom:15px;}
+  }
+}
+
+// Extra large devices - xl
+@media all and (min-width: 1200px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

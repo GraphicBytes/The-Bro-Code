@@ -1,0 +1,262 @@
+//######################
+//##### CODE INDEX #####
+//######################
+@import "_includes/_variables";
+@import "_includes/_global";
+@import "_includes/_loading.scss";
+@import "_includes/_general-layout";
+@import "_includes/_main_menu";
+@import "_includes/_mobile_menu.scss";
+@import "_includes/_meta";
+@import "_includes/_footer";
+@import "_includes/_discuss";
+@import "_includes/_hero-links";
+
+.code-container{
+  display: block;
+  width:100%;
+  position: relative;
+}
+.number{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font2;
+  font-weight: $medium;
+  color: $white;
+  @include bg_bluegrad;
+  @include text-shadow;
+  position: absolute;
+  top:0;
+  left:0;
+  height:100%;
+  z-index: 10;
+
+  &:before{
+    @include bg_bluegrad;
+    display: block;
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    content: "\00a0";
+    z-index: -2;
+  }
+  &:after{
+    display: block;
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    content: "\00a0";
+    z-index: -1;
+    opacity: 0.8;
+  }
+
+  &.green{
+    background: none;
+    color: $white;
+    @include text-shadow;
+
+    &:before{
+      background: $darkgreen;
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -2;
+    }
+    &:after{
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -1;
+      opacity: 0.8;
+    }
+
+    &.full-width{
+      text-align: center;
+      position: relative;
+      display: block;
+      width: 100%;
+      font-size: 1em;
+      font-weight: $light;
+      padding:0.7em 0 0.5em 0;
+      text-transform: uppercase;
+    }
+  }
+
+  &.red{
+    background: none;
+    color: $white;
+    @include text-shadow;
+
+    &:before{
+      background: $red;
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -2;
+    }
+    &:after{
+      display: block;
+      width:100%;
+      height: 100%;
+      position: absolute;
+      top:0;
+      left:0;
+      content: "\00a0";
+      z-index: -1;
+      opacity: 0.8;
+    }
+  }
+}
+.code-content{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding:0 0 0 0;
+  position: relative;
+  flex-wrap: wrap;
+}
+.the-code{
+  font-family: $font;
+  font-weight: $bold;
+  color: $darkgrey;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
+
+
+
+// small devices (max-width: 450px) - xs
+.code-container{
+  .number{
+    font-size: 2em;
+    width:40px;
+    padding:0.05em 0 0 0;
+  }
+  .code-content{
+    width:calc(100% - 40px);
+    margin:0 0 0 40px;
+    min-height: 80px;
+  }
+  .the-code{
+    font-weight: $medium;
+    font-size: 1em;
+    padding:10px 10px 10px 10px;
+  }
+}
+
+// Medium devices - md
+@media all and (min-width: 700px) {
+
+  .code-container{
+    .number{
+      font-size: 2.5em;
+      width:90px;
+      padding:0.05em 0 0 0;
+    }
+    .code-content{
+      width:calc(100% - 90px);
+      margin:0 0 0 90px;
+      min-height: 80px;
+    }
+    .the-code{
+      font-weight: $bold;
+      font-size: 1.1em;
+      padding:15px 15px 15px 15px;
+    }
+  }
+
+}
+
+// Large devices- lg
+@media all and (min-width: 950px) {
+
+  .code-container{
+    .number{
+      font-size: 2.65em;
+      width:100px;
+      padding:0.05em 0 0 0;
+    }
+    .code-content{
+      width:calc(100% - 100px);
+      margin:0 0 -1px 100px;
+      min-height: 90px;
+    }
+    .the-code{
+      font-size: 1.2em;
+      min-height: 1.5em;
+    }
+  }
+
+}
+
+// Extra large devices - xl
+@media all and (min-width: 1200px) {
+
+  .code-container{
+    .number{
+      font-size: 3em;
+      width:110px;
+      padding:0.05em 0 0 0;
+    }
+    .code-content{
+      width:calc(100% - 110px);
+      margin:0 0 0 110px;
+    }
+    .the-code{
+      font-size: 1.3em;
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//sssss

@@ -1,0 +1,42 @@
+.promo-block{
+   margin:10px 0!important;
+}
+
+.promo-box{
+  margin:0 0 0 0!important;
+
+  .promo-header{
+    color: $greychild;
+    @include ani();
+    font-size: 1em;
+    letter-spacing: 2px;
+    margin:0px 0 0 0;
+    line-height: 30px;
+  }
+
+  .promo-text{
+    @include ani();
+    font-weight: $medium;
+    font-size: 0.6em;
+    color: $greychild;
+    margin:5px 0 0 0;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+
+  &:hover{
+
+    .promo-header, .promo-test{
+      color: $white;
+    }
+
+    .hero-link-bg-image{
+      opacity: 1;
+      transform: rotate(360.01deg)scale(1.01);
+      @include ani();
+    }
+
+
+  }
+
+}

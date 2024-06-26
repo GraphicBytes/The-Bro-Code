@@ -1,0 +1,5 @@
+// @koala-prepend "functions/serialise.js"
+// @koala-prepend "functions/slide.js"
+// @koala-prepend "common/easter_eggs.js"
+// @koala-prepend "common/edit_profile.js"
+// @koala-prepend "common/side_bar_toolbar.js"
